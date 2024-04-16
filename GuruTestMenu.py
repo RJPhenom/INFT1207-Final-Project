@@ -31,15 +31,15 @@ EXIT_MESSAGE = "\nExiting testing program\n\nGoodbye...\n"
 # VARS
 # Modules
 modules = {
-    1: "module1_test.py",
-    2: "module2_test.py",
-    3: "module3_test.py",
-    4: "module4_test.py",
-    5: "module5_test.py",
-    6: "module6_test.py",
-    7: "module7_test.py",
-    8: "module8_test.py",
-    9: "module9_test.py"
+    1: "module1_Hayden_test.py",
+    2: "module2_Robert_test.py",
+    3: "module3_Hayden_test.py",
+    4: "module4_Simeon_test.py",
+    5: "module5_Simeon_test.py",
+    6: "module6_Robert_test.py",
+    7: "module7_Austin_test.py",
+    8: "module8_Robert_test.py",
+    9: "module9_Austin_test.py"
 }
 
 
