@@ -28,6 +28,7 @@ class DeleteCustomer(unittest.TestCase):
 
     # tests numbers in customer id field
     def test_dc02_1_verify_customer_id(self):
+        # enters text in the customer id field
         self.browser.find_element(By.NAME, "cusid").send_keys("1234")
         # asserts that the message is the same as the other message
         message = self.browser.find_element(By.ID, "message14").text
@@ -36,6 +37,7 @@ class DeleteCustomer(unittest.TestCase):
     # tests numbers in customer id field
     def test_dc02_2_verify_customer_id(self):
         self.browser.find_element(By.NAME, "cusid").clear()
+        # enters text in the customer id field
         self.browser.find_element(By.NAME, "cusid").send_keys("Acc123")
         # asserts that the message is the same as the other message
         message = self.browser.find_element(By.ID, "message14").text
@@ -44,6 +46,8 @@ class DeleteCustomer(unittest.TestCase):
 
     # tests special characters in customer id field
     def test_dc03_1_verify_customer_id(self):
+        self.browser.find_element(By.NAME, "cusid").clear()
+        # enters text in the customer id field
         self.browser.find_element(By.NAME, "cusid").send_keys("123!@#")
         # asserts that the message is the same as the other message
         message = self.browser.find_element(By.ID, "message14").text
@@ -51,6 +55,8 @@ class DeleteCustomer(unittest.TestCase):
 
     # tests special characters in customer id field
     def test_dc03_2_verify_customer_id(self):
+        self.browser.find_element(By.NAME, "cusid").clear()
+        # enters text in the customer id field
         self.browser.find_element(By.NAME, "cusid").send_keys("!@#")
         # asserts that the message is the same as the other message
         message = self.browser.find_element(By.ID, "message14").text
@@ -59,6 +65,8 @@ class DeleteCustomer(unittest.TestCase):
 
     # tests blank spaces in customer id field
     def test_dc04_verify_customer_id(self):
+        self.browser.find_element(By.NAME, "cusid").clear()
+        # enters text in the customer id field
         self.browser.find_element(By.NAME, "cusid").send_keys("123 12")
         # asserts that the message is the same as the other message
         message = self.browser.find_element(By.ID, "message14").text
@@ -67,6 +75,8 @@ class DeleteCustomer(unittest.TestCase):
 
     # tests blank space in customer id field
     def test_dc05_verify_customer_id(self):
+        self.browser.find_element(By.NAME, "cusid").clear()
+        # enters text in the customer id field
         self.browser.find_element(By.NAME, "cusid").send_keys(" ")
         self.browser.find_element(By.NAME, "cusid").send_keys(Keys.TAB)
         # asserts that the message is the same as the other message
@@ -76,6 +86,7 @@ class DeleteCustomer(unittest.TestCase):
     # tests incorrect customer id in customer id field
     def test_dc06_submit_button(self):
         self.browser.refresh()
+        # enters text in the customer id field
         self.browser.find_element(By.NAME, "cusid").send_keys("123456")
         self.browser.find_element(By.NAME, "AccSubmit").click()
         # asserts that the message is the same as the other message
@@ -89,18 +100,19 @@ class DeleteCustomer(unittest.TestCase):
 
     # tests correct customer id
     def test_dc07_submit_button(self):
+        self.browser.find_element(By.NAME, "cusid").clear()
+        # enters text in the customer id field
         self.browser.find_element(By.NAME, "cusid").send_keys("Your customerid")
         self.browser.find_element(By.NAME, "AccSubmit").click()
         # asserts that the message is the same as the other message
         message = self.browser.switch_to.alert.text
-        assert (message ==
-                "Customer does not existcould not be deleted!! First delete "
-                "all accounts of this customer then delete the customer!!")
+        assert message == "Customer does not existcould not be deleted!! First delete all accounts of this customer then delete the customer!!"
         self.browser.switch_to.alert.accept()
 
     # tests the reset button
     def test_dc08_reset_button(self):
         self.browser.switch_to.alert.accept()
+        # enters text in the customer id field
         self.browser.find_element(By.NAME, "cusid").send_keys("qwer 1234")
         # asserts that the message is the same as the other message
         self.browser.find_element(By.NAME, "res").click()
